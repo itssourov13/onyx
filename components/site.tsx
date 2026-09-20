@@ -7,7 +7,7 @@ import { Icon } from './icons';
 
 export function Header({ entries = [] }: { entries?: ContentEntry[] }){
   return <header className="topbar"><div className="container nav">
-    <Link href="/" className="brand"><span className="brand-mark"><Icon name="globe" size={17}/></span><span><span className="brand-name">ONYX / ARCHIVE</span><span className="brand-sub mono">privacy research terminal</span></span></Link>
+    <Link href="/" className="brand"><span className="brand-mark"><Icon name="globe" size={17}/></span><span><span className="brand-name">ONYX</span><span className="brand-sub mono">privacy research terminal</span></span></Link>
     <ShellControls entries={entries}/>
   </div></header>;
 }
