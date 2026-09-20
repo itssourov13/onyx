@@ -1,0 +1,23 @@
+---
+id: SEC-011
+title: "Testing Without Polluting State"
+description: "Design patterns for disposable test fixtures, synthetic identities and isolated regression cases."
+date: 2026-09-16
+author: "SECURITY DESK"
+category: "APPSEC"
+readTime: "05 MIN"
+classification: "FIELD NOTE"
+tags: ['Testing', 'Isolation', 'AppSec']
+---
+
+## Isolation is a feature
+
+Security regression tests should not require real user accounts or durable application state. Synthetic fixtures make failure reproducible and cleanup predictable.
+
+## Pattern
+
+```text
+create fixture → exercise boundary → capture evidence → reset
+```
+
+Keep fixture storage separate from application storage. If a test fails, its evidence should still be useful without leaving a changed state behind.

@@ -1,0 +1,42 @@
+---
+id: OA-2397
+title: "The Machine Actor Problem"
+description: "A speculative research note on autonomous software agents, identity, and machine-to-machine trust."
+date: 2026-09-15
+author: "ONYX RESEARCH"
+category: "RESEARCH"
+readTime: "09 MIN"
+classification: "PUBLIC"
+tags: ['Agents', 'Identity', 'Policy']
+sources:
+  - label: "NIST AI Risk Management Framework"
+    url: "https://www.nist.gov/itl/ai-risk-management-framework"
+  - label: "OWASP AI Exchange"
+    url: "https://owasp.org/www-project-ai-security-and-privacy-guide/"
+---
+
+## Identity is not authorization
+
+Software agents can call APIs, create artifacts, review code and delegate work. An identifier tells a system which principal is speaking; it does not establish what that principal should be allowed to do.
+
+## A useful model
+
+```text
+principal → scoped capability → policy → action → audit
+
+identity ≠ permission
+permission ≠ unrestricted delegation
+```
+
+A practical architecture keeps identity, capability and policy separately observable. That separation makes audit records more useful and reduces the chance that a convenient identifier becomes an accidental master key.
+
+## Questions for a research system
+
+- How does a machine identity expire?
+- Which actions require fresh authorization?
+- How is delegated work represented in an audit trail?
+- Can a reviewer reconstruct the chain of principals and capabilities after the fact?
+
+## Boundary conditions
+
+The demo does not implement real agents or credentials. It models the information architecture needed for future experiments while keeping every record synthetic.

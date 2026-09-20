@@ -1,0 +1,49 @@
+{
+  "name": "onyx-archive",
+  "version": "0.10.0-demo",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "security:check": "node scripts/security-isolation-check.mjs",
+    "observatory:check": "node scripts/observatory-check.mjs",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "e2e:report": "playwright show-report",
+    "qa:deployed-headers": "node scripts/security-header-check.mjs",
+    "qa:static": "node scripts/qa-static.mjs",
+    "qa:all": "npm run lint && npm run typecheck && npm run security:deps && npm run content:check && npm run qa:imports && npm run security:check && npm run observatory:check && npm run qa:static && npm run build && npm run e2e",
+    "content:check": "node scripts/content-check.mjs",
+    "qa:imports": "node scripts/internal-import-check.mjs",
+    "security:deps": "npm audit --omit=dev --audit-level=high"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "next-mdx-remote-client": "2.1.12",
+    "rehype-slug": "6.0.0",
+    "remark-flexible-toc": "1.2.7",
+    "remark-gfm": "4.0.1",
+    "rehype-sanitize": "6.0.0",
+    "remark-mdx-remove-esm": "1.3.3",
+    "remark-mdx-remove-expressions": "1.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.3.5",
+    "typescript": "^5.8.3",
+    "@playwright/test": "1.63.0",
+    "@axe-core/playwright": "4.13.0"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "npm@10.9.2"
+}

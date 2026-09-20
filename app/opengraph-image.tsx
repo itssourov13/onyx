@@ -1,0 +1,5 @@
+import { ImageResponse } from 'next/og';
+export const alt = 'Onyx Archive — Privacy Research Terminal';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+export default function Image(){ return new ImageResponse(<div style={{width:'100%',height:'100%',display:'flex',background:'#080907',color:'#ede9df',padding:'70px',fontFamily:'sans-serif',position:'relative'}}><div style={{position:'absolute',inset:0,border:'1px solid #3a3327'}}/><div style={{display:'flex',flexDirection:'column',justifyContent:'space-between',width:'100%'}}><div style={{display:'flex',fontSize:22,color:'#cba36b',letterSpacing:4}}>ONYX / ARCHIVE</div><div style={{display:'flex',flexDirection:'column'}}><div style={{display:'flex',fontSize:66,fontWeight:700,letterSpacing:-3,lineHeight:1}}>THE HIDDEN LAYER</div><div style={{display:'flex',fontSize:30,color:'#aead9f',marginTop:18}}>A fictional privacy research terminal.</div></div><div style={{display:'flex',fontSize:18,color:'#777b74'}}>ONION SERVICE // DEMO ENVIRONMENT // RESEARCH · ARCHIVE · NETWORK</div></div></div>,size)}

@@ -1,0 +1,28 @@
+---
+id: R-06
+title: "Supply Chain"
+description: "Build provenance, dependency risk and trust decisions at developer and CI boundaries."
+date: 2026-08-29
+author: "ENGINEERING DESK"
+category: "ENGINEERING"
+readTime: "09 MIN"
+classification: "ACTIVE"
+tags: ['SBOM', 'CI/CD', 'Provenance']
+sources:
+  - label: "SLSA"
+    url: "https://slsa.dev/"
+  - label: "OpenSSF Scorecard"
+    url: "https://scorecard.dev/"
+---
+
+## The workstation is part of the supply chain
+
+Dependency risk does not start in CI. Local package managers, lockfiles, scripts and developer credentials all participate in the path from source to artifact.
+
+## Evidence model
+
+A practical chain connects the declared dependency graph to the resolved graph, build environment, artifact digest and deployment record.
+
+## Regression target
+
+The strongest useful test is repeatability: can the same source revision produce an artifact whose inputs and digest can be explained later?

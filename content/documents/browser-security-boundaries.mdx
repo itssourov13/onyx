@@ -1,0 +1,46 @@
+---
+id: OA-2401
+title: "Browser Security Boundaries in 2026"
+description: "A fictional technical brief examining browser isolation, trust boundaries and emerging client-side attack surfaces."
+date: 2026-09-18
+author: "ONYX RESEARCH"
+category: "SECURITY"
+readTime: "08 MIN"
+classification: "PUBLIC"
+tags: ['Browser', 'Isolation', 'Threat Modeling']
+sources:
+  - label: "MDN Web Security"
+    url: "https://developer.mozilla.org/en-US/docs/Web/Security"
+  - label: "OWASP Web Security Testing Guide"
+    url: "https://owasp.org/www-project-web-security-testing-guide/"
+---
+
+## The boundary is the product
+
+A browser application is not one trust zone. Origin semantics, frame isolation, storage, navigation, permissions and the application’s own state-management choices interact. A useful review therefore starts with a map rather than a payload.
+
+## What to map
+
+1. **Origin boundaries** — identify which resources share an origin and which do not.
+2. **Capability boundaries** — document clipboard, camera, storage, navigation and messaging capabilities.
+3. **State boundaries** — distinguish server state, browser persistence and ephemeral fixture state.
+4. **Navigation boundaries** — treat redirects, links, forms and window-opening behavior as explicit interfaces.
+
+```text
+origin → process → capability → policy → action
+                  ↓
+                audit
+```
+
+## Testing posture
+
+A regression case should be disposable. Synthetic identities and isolated browser fixtures make it possible to exercise a boundary repeatedly without coupling the test to production-like state.
+
+The important result is not a dramatic payload. It is an observable contract: which origin can perform which action, under which policy, and what evidence remains afterward.
+
+## Review checklist
+
+- Map every cross-origin communication path.
+- Separate identity from capability and capability from policy.
+- Verify framing and navigation assumptions in the deployed response.
+- Make reset and teardown part of the test design.

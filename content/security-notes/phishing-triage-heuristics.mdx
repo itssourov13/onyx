@@ -1,0 +1,27 @@
+---
+id: SEC-008
+title: "Phishing Triage Heuristics"
+description: "Small URL and identity signals that can be reviewed locally before escalation."
+date: 2026-09-13
+author: "SECURITY DESK"
+category: "DEFENSIVE"
+readTime: "04 MIN"
+classification: "FIELD NOTE"
+tags: ['Phishing', 'Identity', 'Privacy']
+---
+
+## Local triage
+
+A suspicious URL can often be reviewed without fetching it. Inspect scheme, host structure, punycode, embedded credentials, unusual ports and excessive subdomain depth.
+
+## Heuristics are not proof
+
+A single signal can be benign. Treat the result as a triage aid and escalate for deeper analysis when appropriate.
+
+## Safe workflow
+
+```text
+paste URL → parse locally → inspect signals → record decision
+```
+
+The Onyx lab deliberately does not crawl, redirect to, submit to or fetch the supplied URL.

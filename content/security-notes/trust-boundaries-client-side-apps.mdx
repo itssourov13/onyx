@@ -1,0 +1,26 @@
+---
+id: SEC-014
+title: "Trust Boundaries in Client-Side Apps"
+description: "A compact checklist for mapping browser, DOM, storage and navigation boundaries before testing."
+date: 2026-09-19
+author: "SECURITY DESK"
+category: "BROWSER"
+readTime: "05 MIN"
+classification: "FIELD NOTE"
+tags: ['Browser', 'Isolation', 'Trust']
+---
+
+## Boundary map
+
+Map browser origins, frames, storage, navigation and DOM-controlled state before selecting a test case.
+
+## Disposable fixtures
+
+Use synthetic identities and isolated state for regression cases. A security test should be able to run repeatedly without changing unrelated application state.
+
+## Review checklist
+
+- origin and frame relationships are explicit
+- persistence is intentionally scoped
+- navigation and messaging are treated as interfaces
+- reset is deterministic

@@ -1,0 +1,37 @@
+---
+id: OA-2392
+title: "Protocol Notes: Private Transport"
+description: "Design observations for privacy-oriented application transport without making anonymity claims."
+date: 2026-09-10
+author: "SYSTEMS DESK"
+category: "PRIVACY"
+readTime: "06 MIN"
+classification: "FIELD NOTE"
+tags: ['Protocols', 'Privacy', 'Transport']
+sources:
+  - label: "W3C Web Security"
+    url: "https://www.w3.org/Security/"
+  - label: "MDN HTTP Overview"
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+---
+
+## Privacy is a property, not a badge
+
+Transport encryption protects data in transit, but it does not automatically provide anonymity, unlinkability or freedom from metadata collection. Those are separate properties with different threat models.
+
+## Design observations
+
+A privacy-oriented transport layer should make collection points explicit. Headers, logs, identifiers, retry behavior and error messages can all create data exhaust even when the payload is encrypted.
+
+## A small contract
+
+```text
+transport security → confidentiality + integrity
+privacy architecture → minimization + purpose limitation + controlled retention
+```
+
+The demo uses this distinction deliberately: it presents privacy-oriented terminology without claiming that the site itself provides anonymity or zero logging.
+
+## Verification
+
+For an implementation, verify both source configuration and deployed behavior. A transport contract is useful only when the browser and server actually enforce it.

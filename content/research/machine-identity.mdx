@@ -1,0 +1,32 @@
+---
+id: R-02
+title: "Machine Identity"
+description: "A fictional research stream on agent identities, capabilities, credentials and auditability."
+date: 2026-09-15
+author: "ONYX RESEARCH"
+category: "RESEARCH"
+readTime: "09 MIN"
+classification: "ACTIVE"
+tags: ['Agents', 'Identity', 'Policy']
+sources:
+  - label: "NIST AI RMF"
+    url: "https://www.nist.gov/itl/ai-risk-management-framework"
+  - label: "OWASP LLM Top 10"
+    url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+---
+
+## Machine actors need boundaries
+
+An agent that can act across multiple services needs more than a name. It needs scoped authority, expiration and an audit trail that survives delegation.
+
+## Capability over convenience
+
+A broad credential is easy to integrate but difficult to reason about. Narrow capabilities make the allowed action explicit and provide a smaller blast radius when an integration changes.
+
+## Auditability
+
+An event record should answer who acted, under which capability, on what resource, with what outcome and whether another principal delegated the action.
+
+## Open questions
+
+The project treats machine identity as a research topic rather than an implemented authentication system. Future experiments can add synthetic principals without introducing real credentials.

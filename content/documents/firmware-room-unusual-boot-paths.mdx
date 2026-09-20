@@ -1,0 +1,32 @@
+---
+id: OA-2379
+title: "Firmware Room: Unusual Boot Paths"
+description: "An archive note on firmware analysis workflows and boot-chain observability."
+date: 2026-08-31
+author: "REVERSE ROOM"
+category: "REVERSE"
+readTime: "07 MIN"
+classification: "ARCHIVED"
+tags: ['Firmware', 'RE', 'Boot']
+sources:
+  - label: "NIST Platform Firmware Resiliency Guidelines"
+    url: "https://csrc.nist.gov/publications/detail/sp/800-193/final"
+  - label: "UEFI Specifications"
+    url: "https://uefi.org/specifications"
+---
+
+## Boot is a sequence of trust decisions
+
+Firmware analysis becomes easier to reason about when the boot path is represented as a sequence of components and transitions rather than a single opaque image.
+
+## Observation points
+
+Map reset behavior, firmware volumes, boot managers, configuration stores and hand-off points. Record what is expected before investigating what is unusual.
+
+## Evidence discipline
+
+A useful firmware workflow preserves original artifacts, records hashes and separates acquisition from analysis. The archive model in this project intentionally uses synthetic fingerprints and does not represent real devices.
+
+## Defensive outcome
+
+The goal is observability: knowing which component executed, what it loaded, and where a trust decision changed state.

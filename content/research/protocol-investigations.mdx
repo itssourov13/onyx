@@ -1,0 +1,26 @@
+---
+id: R-05
+title: "Protocol Investigations"
+description: "Small, focused investigations into protocol semantics, assumptions and failure modes."
+date: 2026-09-04
+author: "PROTOCOL DESK"
+category: "RESEARCH"
+readTime: "06 MIN"
+classification: "FIELD"
+tags: ['Protocols', 'Analysis', 'Research']
+sources:
+  - label: "RFC Editor"
+    url: "https://www.rfc-editor.org/"
+---
+
+## Read the protocol as a contract
+
+Protocol analysis begins with semantics: message ordering, required fields, error states, replay behavior and assumptions about peers.
+
+## Failure modes
+
+A protocol can be syntactically valid while semantically unsafe. Ambiguous state transitions and inconsistent validation are often more interesting than malformed packets.
+
+## Research method
+
+Capture the expected state machine, construct synthetic fixtures, then vary one assumption at a time. The output should be a reproducible observation, not a dramatic exploit narrative.

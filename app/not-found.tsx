@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main className="not-found"><div className="container card"><div className="eyebrow">404 / NO SIGNAL</div><h1 className="page-title">This record is not in the archive.</h1><p className="page-intro">The requested path does not resolve to a known demo record.</p><Link className="btn btn-primary" href="/archive">Return to archive ↗</Link></div></main>}

@@ -1,0 +1,43 @@
+---
+id: OA-2388
+title: "Supply-Chain Signal Atlas"
+description: "A fictional field guide to package provenance, build attestations and developer workstation trust."
+date: 2026-09-06
+author: "ENGINEERING DESK"
+category: "ENGINEERING"
+readTime: "11 MIN"
+classification: "PUBLIC"
+tags: ['SBOM', 'CI/CD', 'Provenance']
+sources:
+  - label: "SLSA"
+    url: "https://slsa.dev/"
+  - label: "CycloneDX"
+    url: "https://cyclonedx.org/"
+---
+
+## Provenance is an evidence chain
+
+Dependency manifests tell you what a build declares. Provenance evidence asks a harder question: how did the artifact move from source to the thing that was deployed?
+
+## Signals worth retaining
+
+- source revision
+- dependency resolution
+- build environment
+- artifact digest
+- signer or attestation identity
+- deployment target
+
+## Failure mode: drift
+
+A fictional build can pass local review while the deployment resolves a different dependency graph. The useful control is not a larger dashboard; it is a verifiable chain between source, build inputs and artifact.
+
+## Minimal evidence model
+
+```text
+source → resolver → build → artifact → deploy
+   │         │         │         │
+   └──────── evidence / digest ──┘
+```
+
+SLSA and SBOM formats provide useful vocabulary for making these relationships machine-readable. The Onyx implementation keeps the records synthetic and intentionally small.

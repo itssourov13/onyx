@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="loading-screen"><div className="container"><div className="eyebrow">ONYX / ARCHIVE</div><div className="loading-line"><span/></div><p className="mono muted small">INITIALIZING LOCAL INTERFACE…</p></div></main>}

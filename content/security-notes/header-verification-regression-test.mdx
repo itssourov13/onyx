@@ -1,0 +1,23 @@
+---
+id: SEC-004
+title: "Header Verification as a Regression Test"
+description: "Treat response headers as testable security contracts instead of static configuration files."
+date: 2026-09-09
+author: "SECURITY DESK"
+category: "HARDENING"
+readTime: "05 MIN"
+classification: "FIELD NOTE"
+tags: ['Headers', 'CSP', 'Hardening']
+---
+
+## Headers are contracts
+
+Security headers should be treated as regression-test inputs. A source configuration is not enough if the deployed response differs.
+
+## Contract surface
+
+Test content security policy, framing restrictions, MIME sniffing protection, referrer behavior and browser capability restrictions.
+
+## Deployment check
+
+Record the expected response contract and compare it with the live response. Keep development-only exceptions out of the production baseline.

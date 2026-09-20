@@ -1,0 +1,31 @@
+---
+id: R-04
+title: "Privacy Architecture"
+description: "Practical patterns for minimizing data exhaust while preserving useful product telemetry."
+date: 2026-09-08
+author: "SYSTEMS DESK"
+category: "PRIVACY"
+readTime: "08 MIN"
+classification: "ACTIVE"
+tags: ['Privacy', 'Data', 'Architecture']
+sources:
+  - label: "W3C Privacy Principles"
+    url: "https://www.w3.org/TR/privacy-principles/"
+  - label: "OWASP Privacy Risks"
+    url: "https://owasp.org/www-project-top-10-privacy-risks/"
+---
+
+## Minimize first
+
+Privacy architecture starts by asking whether a piece of data needs to exist at all. If it does, its purpose, lifetime and access path should be explicit.
+
+## Useful controls
+
+- collect only what the feature needs
+- prefer ephemeral state for temporary workflows
+- separate product telemetry from security evidence
+- make retention visible to operators
+
+## Interface matters
+
+A privacy control that is technically present but difficult to understand is easy to bypass accidentally. Good privacy UX makes collection and sharing boundaries legible without turning every screen into a warning dialog.

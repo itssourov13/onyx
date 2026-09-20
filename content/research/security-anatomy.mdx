@@ -1,0 +1,40 @@
+---
+id: R-01
+title: "Security Anatomy"
+description: "Threat modeling notes that treat the browser, build pipeline and user as one connected trust graph."
+date: 2026-09-17
+author: "ONYX RESEARCH"
+category: "RESEARCH"
+readTime: "10 MIN"
+classification: "ACTIVE"
+tags: ['Threat Modeling', 'Browser', 'Trust']
+sources:
+  - label: "OWASP Threat Modeling"
+    url: "https://owasp.org/www-community/Threat_Modeling"
+  - label: "MDN Web Security"
+    url: "https://developer.mozilla.org/en-US/docs/Web/Security"
+---
+
+## One connected trust graph
+
+Security review often becomes fragmented when browser, build pipeline and user are assessed independently. The more useful model treats them as connected boundaries.
+
+## Browser edge
+
+The browser controls origin, navigation, storage and capability exposure. Those controls are only effective when application assumptions match browser behavior.
+
+## Build edge
+
+The deployed artifact inherits assumptions from dependencies, build tooling and configuration. A secure source tree can still produce an unexpected runtime if provenance is not observable.
+
+## Human edge
+
+The user decides what to disclose, which prompts to accept and which links to follow. Security UX should make those decisions legible rather than hiding them behind decorative warnings.
+
+## Working model
+
+```text
+user intent ↔ browser policy ↔ application state ↔ build provenance
+```
+
+The research direction is to turn each edge into a testable contract and then verify the composition.

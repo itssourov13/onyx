@@ -1,0 +1,28 @@
+---
+id: R-03
+title: "Firmware Room"
+description: "Reverse-engineering notes focused on observability, boot flow and defensive analysis."
+date: 2026-09-12
+author: "REVERSE ROOM"
+category: "REVERSE"
+readTime: "07 MIN"
+classification: "FIELD"
+tags: ['Firmware', 'RE', 'Boot']
+sources:
+  - label: "NIST SP 800-193"
+    url: "https://csrc.nist.gov/publications/detail/sp/800-193/final"
+---
+
+## Observability before interpretation
+
+Reverse-engineering becomes more reliable when acquisition, normalization and interpretation are separate stages.
+
+A repeatable workflow records the original image, calculates a deterministic fingerprint, identifies known regions and only then performs deeper inspection.
+
+## Boot-flow map
+
+```text
+reset → firmware volume → boot manager → loader → operating environment
+```
+
+Unexpected transitions should be treated as evidence to investigate, not proof of compromise. The fictional archive keeps that distinction explicit.
