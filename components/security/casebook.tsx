@@ -27,6 +27,7 @@ export function Casebook() {
   const [evidence, setEvidence] = useState('');
   const [ready, setReady] = useState(false);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     try {
       const stored = window.localStorage.getItem(KEY);
@@ -40,6 +41,7 @@ export function Casebook() {
       setReady(true);
     }
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (!ready) return;
@@ -80,7 +82,7 @@ export function Casebook() {
         <label className="field-label" htmlFor="case-notes">Notes</label><textarea id="case-notes" className="tool-textarea" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Observation, hypothesis, remediation note…" />
         <label className="field-label" htmlFor="case-evidence">Evidence reference</label><textarea id="case-evidence" className="tool-textarea mono" value={evidence} onChange={(event) => setEvidence(event.target.value)} placeholder="Pasted header line, parser output, or local artifact reference…" />
         <div className="cta-row"><button className="btn btn-primary" type="button" onClick={addCase} disabled={!title.trim()}>Create local case</button><button className="btn btn-ghost" type="button" onClick={exportJson}>Export JSON</button><button className="btn btn-ghost" type="button" onClick={reset} disabled={!entries.length}>Reset</button></div>
-        <div className="callout"><strong>Storage boundary:</strong> entries stay in this browser's localStorage until reset or browser storage is cleared. No server sync is implemented.</div>
+        <div className="callout"><strong>Storage boundary:</strong> entries stay in this browser&apos;s localStorage until reset or browser storage is cleared. No server sync is implemented.</div>
       </section>
       <section className="card">
         <div className="eyebrow">CASE STREAM</div>

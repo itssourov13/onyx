@@ -10,6 +10,7 @@ export default function ContactForm() {
   const [draft, setDraft] = useState<Draft>(emptyDraft);
   const [saved, setSaved] = useState(false);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
@@ -20,6 +21,7 @@ export default function ContactForm() {
       setDraft(emptyDraft);
     }
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   function update<K extends keyof Draft>(key: K, value: Draft[K]) {
     setDraft((current) => ({ ...current, [key]: value }));

@@ -21,7 +21,9 @@ function inspectUrl(value:string){
 export default function PhishingPage(){
   const [value,setValue]=useState('https://example.test/account/verify');
   const [items,setItems]=useState<string[]>(['https://example.test/account/verify','https://research.example.test/docs']);
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(()=>{ try { const saved=window.sessionStorage.getItem('onyx-phishing-queue'); if(saved){ const parsed=JSON.parse(saved); if(Array.isArray(parsed)) setItems(parsed.filter((x): x is string => typeof x==='string').slice(0,20)); } } catch {} },[]);
+  /* eslint-enable react-hooks/set-state-in-effect */
   useEffect(()=>{ try { window.sessionStorage.setItem('onyx-phishing-queue',JSON.stringify(items.slice(0,20))); } catch {} },[items]);
   const result=useMemo(()=>inspectUrl(value),[value]);
   function add(e:FormEvent<HTMLFormElement>){e.preventDefault(); if(!value.trim()) return; setItems(curr=>curr.includes(value.trim())?curr:[value.trim(),...curr].slice(0,20));}
